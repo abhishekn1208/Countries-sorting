@@ -1,0 +1,19 @@
+#container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 15px;
+}
+body>div{
+    display: flex;
+justify-content: center;
+margin: 25px;
+}
+button{
+    border: none;
+padding: 12px 12px;
+border-radius: 17px;
+color: white;
+background-image: linear-gradient(203deg, #894b4b, #b14c4c);
+font-size: -webkit-xxx-large;
+cursor: pointer;
+}
