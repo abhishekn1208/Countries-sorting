@@ -1,21 +1,22 @@
 let URL = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-countries`
 
 let container = document.getElementById("container")
-let countries = [];
 
-getData();
 
-async function getData(){
-    let response = await fetch(URL)
+
+
+async function getData(URL){
+    let response = await fetch(`${URL}`)
     let data1 = await response.json();
     countries = data1.data
 
     displayData(countries)
 }
+getData(URL);
 
-function displayData(countries){
+function displayData(arr){
     container.innerHTML = "";
-    countries.forEach((ele) => {
+    arr.forEach((ele) => {
         let card = document.createElement("div")
         card.style.border = "1px solid black"
         card.style.textAlign = "center"
@@ -32,9 +33,6 @@ document.getElementById("sort").addEventListener("click", function(){
 })
 
 function sortData(){
- 
-        const sortcountry = [...countries].sort((a,b)=> b.population - a.population)
-        console.log(sortcountry)
-
-    displayData(sortcountry)
+  
+ getData(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-countries?sort=population&order=desc`)
 }
